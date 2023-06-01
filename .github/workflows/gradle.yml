@@ -33,6 +33,8 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
     # build한 후 프로젝트를 압축합니다.
@@ -50,7 +52,7 @@ jobs:
         aws-region: ap-northeast-2
     # 압축한 프로젝트를 S3로 전송합니다.
     - name: Upload to S3
-      run: aws s3 cp --region ap-northeast-2 ./practice-deploy.zip s3://$be-117-hanjuyoung309/practice-deploy.zip
+      run: aws s3 cp --region ap-northeast-2 ./practice-deploy.zip s3://$S3_BUCKET_NAME/practice-deploy.zip
 
     - name: Code Deploy
       run: >
